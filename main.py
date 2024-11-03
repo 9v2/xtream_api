@@ -168,12 +168,3 @@ async def admin_auth(username: str, password: str):
     response = JSONResponse(content={"status": 200})
     response.set_cookie(key="auth", value=hash)
     return response
-
-
-if __name__ == "__main__":
-    import utils.common as common
-
-    ip = cfg.SERVER_IP
-    port = cfg.SERVER_PORT
-
-    uvicorn.run("main:app", host=ip, port=int(port), log_level=cfg.LOG_LEVEL, reload=True)
